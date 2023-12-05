@@ -6,16 +6,16 @@
 /*   By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 11:13:04 by ayel-mou          #+#    #+#             */
-/*   Updated: 2023/12/05 11:23:43 by ayel-mou         ###   ########.fr       */
+/*   Updated: 2023/12/06 00:42:37 by ayel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line_bonus.h"
 
-void read_line_fd(char **stash, int fd)
+void	read_line_fd(char **stash, int fd)
 {
-	char *holder;
-	int read_count;
+	char	*holder;
+	int		read_count;
 
 	holder = NULL;
 	while (!ft_strchr(*stash, '\n'))
@@ -35,10 +35,10 @@ void read_line_fd(char **stash, int fd)
 	}
 }
 
-char *extract_line(char *stash)
+char	*extract_line(char *stash)
 {
-	char *line;
-	int i;
+	char	*line;
+	int		i;
 
 	line = NULL;
 	i = 0;
@@ -48,7 +48,7 @@ char *extract_line(char *stash)
 		i++;
 	line = malloc(i + 1);
 	if (line == NULL)
-		return(NULL);
+		return (NULL);
 	i = -1;
 	while (stash[++i] && stash[i] != '\n')
 		line[i] = stash[i];
@@ -58,14 +58,14 @@ char *extract_line(char *stash)
 		i++;
 	}
 	line[i] = '\0';
-	return(line);
+	return (line);
 }
 
-char *clean_stash(char *stash)
+char	*clean_stash(char *stash)
 {
-	char *holder;
-	int i;
-	int j;
+	char	*holder;
+	int		i;
+	int		j;
 
 	i = 0;
 	j = 0;
@@ -83,15 +83,15 @@ char *clean_stash(char *stash)
 		i++;
 	}
 	holder[j] = '\0';
-	free(stash);
+	free (stash);
 	return (holder);
 }
 
-char *get_next_line(int fd)
+char	*get_next_line(int fd)
 {
-	static char *array_of_stash[1024];
-	char *stash;
-	char *line;
+	static char	*array_of_stash[1024];
+	char		*stash;
+	char		*line;
 
 	stash = array_of_stash[fd];
 	line = NULL;
@@ -99,12 +99,13 @@ char *get_next_line(int fd)
 		return (NULL);
 	read_line_fd(&stash, fd);
 	if (stash == NULL)
-		return(NULL);
+		return (NULL);
 	line = extract_line(stash);
 	if (line[0] == '\0')
 	{
 		free(stash);
-		return(NULL);
+		free(line);
+		return (NULL);
 	}
 	stash = clean_stash(stash);
 	array_of_stash[fd] = stash;
