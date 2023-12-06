@@ -6,7 +6,7 @@
 /*   By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 11:13:04 by ayel-mou          #+#    #+#             */
-/*   Updated: 2023/12/06 00:42:37 by ayel-mou         ###   ########.fr       */
+/*   Updated: 2023/12/06 05:28:46 by ayel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ char	*get_next_line(int fd)
 
 	stash = array_of_stash[fd];
 	line = NULL;
-	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, line, 0) == -1)
+	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, line, 0) < 0)
 		return (NULL);
 	read_line_fd(&stash, fd);
 	if (stash == NULL)
