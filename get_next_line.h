@@ -5,10 +5,11 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/06 14:34:51 by mzelouan          #+#    #+#             */
-/*   Updated: 2023/12/09 06:40:07 by ayel-mou         ###   ########.fr       */
+/*   Created: 2023/12/09 13:26:46 by ayel-mou          #+#    #+#             */
+/*   Updated: 2023/12/09 13:26:53 by ayel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
@@ -20,7 +21,7 @@
 # include <limits.h>
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 10
+#  define BUFFER_SIZE 1
 # endif
 
 char	*get_next_line(int fd);
