@@ -6,7 +6,7 @@
 /*   By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 14:34:18 by mzelouan          #+#    #+#             */
-/*   Updated: 2023/12/09 06:45:14 by ayel-mou         ###   ########.fr       */
+/*   Updated: 2023/12/09 06:46:45 by ayel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	get_stash(char **stash, int fd)
 			free(buffer);
 			return ;
 		}
-		if (butes_read == -1)
+		if (bytes_read == -1)
 		{
 			free(buffer);
 			free(*stash);
