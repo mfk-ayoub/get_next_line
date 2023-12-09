@@ -5,20 +5,22 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/05 11:13:17 by ayel-mou          #+#    #+#             */
-/*   Updated: 2023/12/06 00:38:48 by ayel-mou         ###   ########.fr       */
+/*   Created: 2023/12/06 14:34:33 by mzelouan          #+#    #+#             */
+/*   Updated: 2023/12/09 06:26:20 by ayel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line_bonus.h"
+#include "get_next_line.h"
 
 char	*ft_strchr(const char *s, int c)
 {
 	unsigned char	ch;
 
 	ch = (unsigned char)c;
-	if (!s)
+	if (s == NULL)
+	{
 		return (NULL);
+	}
 	while (*s)
 	{
 		if (*s == ch)
@@ -30,31 +32,31 @@ char	*ft_strchr(const char *s, int c)
 	return (NULL);
 }
 
-char	*ft_strjoin(char *left_str, char *buff)
+char	*ft_strjoin(char *str1, char *str2)
 {
 	size_t	i;
 	size_t	j;
 	char	*str;
 
-	if (!left_str)
+	if (!str1)
 	{
-		left_str = (char *)malloc(1 * sizeof(char));
-		left_str[0] = '\0';
+		str1 = (char *)malloc(1 * sizeof(char));
+		str1[0] = '\0';
 	}
-	if (!left_str || !buff)
+	if (!str1 || !str2)
 		return (NULL);
-	str = malloc(sizeof(char) * ((ft_strlen(left_str) + ft_strlen(buff)) + 1));
+	str = malloc(sizeof(char) * ((ft_strlen(str1) + ft_strlen(str2)) + 1));
 	if (str == NULL)
 		return (NULL);
 	i = -1;
 	j = 0;
-	if (left_str)
-		while (left_str[++i] != '\0')
-			str[i] = left_str[i];
-	while (buff[j] != '\0')
-		str[i++] = buff[j++];
-	str[ft_strlen(left_str) + ft_strlen(buff)] = '\0';
-	free(left_str);
+	if (str1)
+		while (str1[++i] != '\0')
+			str[i] = str1[i];
+	while (str2[j] != '\0')
+		str[i++] = str2[j++];
+	str[ft_strlen(str1) + ft_strlen(str2)] = '\0';
+	free(str1);
 	return (str);
 }
 
@@ -63,8 +65,10 @@ size_t	ft_strlen(const char *s)
 	size_t	len;
 
 	len = 0;
-	if (!s)
+	if (s == NULL)
+	{
 		return (0);
+	}
 	while (s[len] != '\0')
 		len++;
 	return (len);
