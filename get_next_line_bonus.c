@@ -6,7 +6,7 @@
 /*   By: ayel-mou <ayel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 14:34:18 by mzelouan          #+#    #+#             */
-/*   Updated: 2023/12/09 06:38:19 by ayel-mou         ###   ########.fr       */
+/*   Updated: 2023/12/09 06:45:14 by ayel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,10 +103,10 @@ char	*get_next_line(int fd)
 	line = NULL;
 	if (fd < 0 || BUFFER_SIZE <= 0 || fd > 1024)
 		return (NULL);
-	read_line_fd(&stash[fd], fd);
+	get_stash(&stash[fd], fd);
 	if (stash[fd] == NULL)
 		return (NULL);
-	line = extract_line(stash[fd]);
+	line = get_one__line(stash[fd]);
 	if (line == NULL)
 	{
 		free(stash[fd]);
