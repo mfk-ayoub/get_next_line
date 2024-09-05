@@ -38,3 +38,6 @@ Turn-in all 3 mandatory files ending by `_bonus.[c\h]` for this part.
 
 
 ---
+## CONTRIBUTING
+
+If you find any issues or have suggestions for improvements, feel free to fork the repository and open an issue or submit a pull request.
